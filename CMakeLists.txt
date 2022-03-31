@@ -11,5 +11,6 @@ set(SFML_STATIC_LIBRARIES TRUE)
 find_package(SFML 2.5.1 REQUIRED COMPONENTS graphics window system )
 
 add_executable(Goo main.cpp Game.cpp)
+add_custom_command(TARGET Goo PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/fonts $<TARGET_FILE_DIR:Goo>/fonts)
 
 target_link_libraries(Goo sfml-graphics sfml-window sfml-system)

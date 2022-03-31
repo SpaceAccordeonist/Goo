@@ -43,12 +43,13 @@ int main() {
                             break;
                     }
                 } else if (event.type == sf::Event::MouseButtonPressed){
+                    sf::Vector2f coords = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                     switch (event.mouseButton.button) {
                         case sf::Mouse::Left:
-                            game.alterCell(event.mouseButton.x, event.mouseButton.y, Game::EditMode::SET);
+                            game.alterCell(coords.x, coords.y, Game::EditMode::SET);
                             break;
                         case sf::Mouse::Right:
-                            game.alterCell(event.mouseButton.x, event.mouseButton.y, Game::EditMode::REMOVE);
+                            game.alterCell(coords.x, coords.y, Game::EditMode::REMOVE);
                             break;
                         default:
                             break;

@@ -110,7 +110,7 @@ public:
         }
 
         //Шрифт
-        main_font.loadFromFile("D:\\Projects\\C++\\Goo\\fonts\\PressStart2P-Regular.ttf");
+        main_font.loadFromFile("fonts/PressStart2P-Regular.ttf");
 
         // Инициализация интерфейса
         walls_draw = sf::RectangleShape(sf::Vector2f(field.getWidth(), field.getHeight()));
@@ -177,12 +177,14 @@ public:
     }
 
     void alterCell(int x, int y, EditMode mode){
-        int cell_x = -1, cell_y = -1;
-        cell_x = (x - (int)field.getPosX()) / cell_size;
-        cell_y = (y - (int)field.getPosY()) / cell_size;
-        if (cell_x >= 0 && cell_x < SIZE_X &&
-                cell_y >= 0 && cell_y < SIZE_Y){
-            cells[cell_x][cell_y] = (mode == EditMode::SET ? 1 : 0);
+        if (current_gamemode == GameMode::EDIT) {
+            int cell_x = -1, cell_y = -1;
+            cell_x = (x - (int) field.getPosX()) / cell_size;
+            cell_y = (y - (int) field.getPosY()) / cell_size;
+            if (cell_x >= 0 && cell_x < SIZE_X &&
+                cell_y >= 0 && cell_y < SIZE_Y) {
+                cells[cell_x][cell_y] = (mode == EditMode::SET ? 1 : 0);
+            }
         }
     }
 

@@ -88,7 +88,7 @@ public:
     /// \return Current position of the mouse
     ///
     ////////////////////////////////////////////////////////////
-    static Vector2i getPosition();
+    static Vector2<float> getPosition();
 
     ////////////////////////////////////////////////////////////
     /// \brief Get the current position of the mouse in window coordinates
